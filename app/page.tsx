@@ -13,6 +13,8 @@ import {
 } from "antd";
 import {
   ConnectButton,
+  useCurrentAccount,
+  useCurrentWallet,
   useSignAndExecuteTransaction,
   useSuiClient,
 } from "@mysten/dapp-kit";
@@ -259,6 +261,7 @@ const page = () => {
   const suiClient = useSuiClient();
   const [ptbNumber, setPtbNumber] = useState(1);
   const [moveCallOpen, setMoveCallOpen] = useState(false);
+  const wallet = useCurrentWallet();
 
   const { mutateAsync: signAndExecuteTransaction } =
     useSignAndExecuteTransaction({
